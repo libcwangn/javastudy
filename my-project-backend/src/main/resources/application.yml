@@ -1,1 +1,10 @@
-spring.application.name=my-project-backend
+spring:
+  security:
+    jwt:
+      key: wdfewefewf
+      expire: 7
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 200412
+    driver-class-name: com.mysql.cj.jdbc.Driver
