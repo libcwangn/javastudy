@@ -109,6 +109,7 @@ public class JWTutil {
     public UserDetails toUser(DecodedJWT jwt) {
 
         Map<String, Claim> claims= jwt.getClaims();
+        System.out.println(claims);
         return User
                 .withUsername(claims.get("username").asString())
                 .password("cwdcw")

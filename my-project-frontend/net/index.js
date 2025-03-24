@@ -56,16 +56,41 @@ function internalGet(url,header,success,failure,error=defaultError){
         }
     }).catch(error=>{error(error)})
 }
-function login(username,password,rememberMe,success,failure=defaultError){
-    internalPost('/api/auth/login',data=>{
-        usernamre;
-        password;
+function login(username,password,rememberMe,success,failure=defaultFailure){
+    internalPost('/api/auth/login',{
+        username,
+        password,
+        rememberMe
     },{
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     },(data)=>{
-        storeAccessToken( rememberMe,data.token,data.expire);
+        storeAccessToken( data.token,rememberMe,data.expire);
         ElMessage.success(`登录成功,欢迎${data.username} 来到我们的系统`)
-        success(data.data)
-    },failure=>{})
+        success(data.data)//好像没有什么用
+    },(data)=>{
+        ElMessage.warning(`登录失败,${data.username}`)
+
+    })
 }
-export {login}
+function accessHeader(){
+    const token=takeAccessToken();
+    return  token?{'Authorization': `Bearer ${token}`}:{}
+}
+function get(url,success,failure=defaultFailure){
+    internalGet(url,accessHeader(),success,failure)
+}
+function post(url,data,success,failure=defaultFailure){
+    internalPost(url,data,accessHeader(),success,failure)
+}
+
+function  logout(success,failure=defaultFailure){
+    get('api/auth/logout',()=>{
+        success()//回调函数
+        deleteAccessToken()
+        ElMessage.success('退出登录成功,欢迎您再次使用')
+    },failure)
+}
+function unauthorized(){
+    return !takeAccessToken()
+}
+export {login,logout,get,post,unauthorized}

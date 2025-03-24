@@ -29,6 +29,7 @@ public class JWTAutorizeFilter extends OncePerRequestFilter {
         DecodedJWT decodedJWT = jwtutil.resolveJwt(authorization);//解析jwt
        //到这里能执行
         if (decodedJWT != null) {
+            System.out.println(3);
             UserDetails userDetails= jwtutil.toUser(decodedJWT);
             UsernamePasswordAuthenticationToken authenticationToken =
                     new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());

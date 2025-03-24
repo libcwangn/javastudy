@@ -14,6 +14,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account>imple
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println(username);
         Account account=this.findAccountByUsernameOrEmail(username);
         if(account==null){
             throw new UsernameNotFoundException("username");

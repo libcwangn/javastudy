@@ -2,6 +2,7 @@
 import {reactive,ref} from "vue";
 import {Lock, User} from "@element-plus/icons-vue";
 import {login} from "../../../net/index.js";
+import router from "@/router/index.js";
 const form =reactive(({
   username: '' ,
   password: '' ,
@@ -12,11 +13,11 @@ const formRef=ref()
 function userLogin(){
   formRef.value.validate((valid)=>{
     if(valid){
-      login(form.username,form.password,form.remember,()=>{});
+      login(form.username,form.password,form.remember,()=>{router.push('/index')},()=>{});
     }
   })
 }
-
+//()=>{router.push('/index')}
 const rule={
   username:[{
     required: true,message:'请输入用户名'
