@@ -6,7 +6,22 @@ spring:
       key: wdfewefewf
       expire: 7
   datasource:
-    url: jdbc:mysql://localhost:3306/test
+    url: jdbc:mysql://116.62.49.132:3306/study
     username: root
-    password: 200412
+    password: qx025741@Lnbc
     driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    host: smtp.163.com
+
+    username: shiyiyi976707@163.com
+    # 注意密码是在开启smtp/pop3时自动生成的，记得保存一下，不然就找不到了
+    password: QCek3BgXTbk44L6R
+  rabbitmq:
+    addresses: 116.62.49.132
+    username: admin
+    password: admin
+    virtual-host: /
+  data:
+    redis:
+      host: 116.62.49.132
+      port: 6379
