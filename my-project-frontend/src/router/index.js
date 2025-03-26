@@ -13,6 +13,14 @@ const router=createRouter({
                     path:'',
                     name:'welcome-login',
                     component:()=>import('@/views/welcome/LoginPage.vue')
+                },{
+                    path:'register',
+                    name:'welcome-register',
+                    component:()=>import('@/views/welcome/RegisterPage.vue')
+                },{
+                    path: 'reset-password',
+                    name: 'welcome-reset-password',
+                    component: () => import('@/views/welcome/ResetPage.vue')
                 }
             ]
         },{

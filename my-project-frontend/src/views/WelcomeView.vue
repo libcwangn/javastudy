@@ -14,7 +14,11 @@
         </div>
 
     <div class="right-side">
-<router-view/>
+<router-view v-slot="{ Component }">
+  <transition name="el-fade-in-linear" mode="out-in">
+        <component :is="Component"/>
+      </transition>
+      </router-view>
     </div>
   </div>
 </template>
@@ -23,7 +27,7 @@
 .right-side{
   width:400px;
   z-index: 1;
-  background:white;
+  background:var(--el-bg-color);
 }
 .welcome-title{
   position:absolute;

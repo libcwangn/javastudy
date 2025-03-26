@@ -46,7 +46,7 @@ const rule={
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="form.password" maxlength="20" type="text" placeholder="密码">
+          <el-input v-model="form.password" maxlength="20" type="password" placeholder="密码">
             <template #prefix>
               <el-icon>
                 <Lock />
@@ -61,7 +61,7 @@ const rule={
             </el-form-item>
           </el-col>
           <el-col :span="12" style="text-align: right">
-            <el-link>忘记密码?</el-link>
+            <el-link @click="router.push('reset-password')">忘记密码?</el-link>
           </el-col>
         </el-row>
       </el-form>
@@ -72,7 +72,7 @@ const rule={
 
     <el-divider style="font-size: 13px;color: #706b62" >没有账号</el-divider>
     <div>
-      <el-button style="width: 200px" type="warning" plain>立即注册</el-button>
+      <el-button @click="router.push('/register')" style="width: 200px" type="warning" plain>立即注册</el-button>
   </div>
 </div>
 </template>

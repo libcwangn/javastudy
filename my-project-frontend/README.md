@@ -1,29 +1,8 @@
-# my-project-frontend
+## 第一步
+### 方案一
+用户先带验证码请求接口,然后后端存储对应用户已经通过的标记,
+用户填写新的密码后,然后请求重置密码的接口,接口验证是否已经通过,然后
+重置密码
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+### 方案二
+不用加标记,连续验证两次验证码

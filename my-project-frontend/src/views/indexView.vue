@@ -14,6 +14,7 @@ function userLogout(){
 
 <template>
   <router-view/>
+
   <div>
     <el-button @click="userLogout">退出登录</el-button>
   </div>
